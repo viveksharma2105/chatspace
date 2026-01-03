@@ -1,29 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "web/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "web/dist"
-      }
-    },
-    {
-      "src": "api/src/index.ts",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "api/src/index.ts"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "web/dist/$1"
-    }
-  ],
+  "framework": "vite",
+  "buildCommand": "cd web && npm install && npm run build",
   "outputDirectory": "web/dist",
-  "buildCommand": "cd web && npm run build",
-  "installCommand": "npm install --prefix web && npm install --prefix api"
+  "installCommand": "echo 'skipping root install'"
 }
