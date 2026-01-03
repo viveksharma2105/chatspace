@@ -106,14 +106,14 @@ export function JoinRoom({
             {!roomCreated && (
               <button
                 onClick={onCreateRoom}
-                className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
+                className="flex-1 bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
               >
                 Create Room
               </button>
             )}
             <button
               onClick={onJoinRoom}
-              className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
+              className="flex-1 bg-linear-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-medium shadow-lg transition-all duration-200 hover:scale-105 active:scale-95"
             >
               Join Room
             </button>

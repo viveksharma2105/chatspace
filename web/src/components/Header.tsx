@@ -11,14 +11,14 @@ export function Header({ isDarkTheme, setIsDarkTheme, isConnected, currentRoom, 
     <div className={`backdrop-blur-md border-b px-4 sm:px-6 py-5 shadow-lg transition-colors duration-300 ${
       isDarkTheme
         ? 'bg-black/40 border-gray-800'
-        : 'bg-gradient-to-r from-purple-600/20 via-pink-600/20 to-purple-600/20 border-white/20'
+        : 'bg-linear-to-r from-purple-600/20 via-pink-600/20 to-purple-600/20 border-white/20'
     }`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className={`p-2 sm:p-3 rounded-xl shadow-lg transition-colors duration-300 ${
             isDarkTheme
-              ? 'bg-gradient-to-br from-gray-700 to-gray-900'
-              : 'bg-gradient-to-br from-purple-500 to-pink-500'
+              ? 'bg-linear-to-br from-gray-700 to-gray-900'
+              : 'bg-linear-to-br from-purple-500 to-pink-500'
           }`}>
             <div className="text-2xl sm:text-3xl">💬</div>
           </div>

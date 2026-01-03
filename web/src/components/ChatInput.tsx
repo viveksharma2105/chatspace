@@ -53,7 +53,11 @@ export function ChatInput({ isDarkTheme, onSendMessage }: ChatInputProps) {
             sendMessage();
             inputRef.current?.focus();
           }}
-          className="bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 sm:px-8 py-3 rounded-full font-medium shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 text-sm sm:text-base"
+          className={`px-6 sm:px-8 py-3 rounded-full font-medium shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 text-sm sm:text-base text-white ${
+            isDarkTheme
+              ? 'animated-border bg-gray-800 hover:bg-gray-700'
+              : 'bg-linear-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700'
+          }`}
         >
           Send
         </button>

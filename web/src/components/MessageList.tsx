@@ -32,7 +32,7 @@ export function MessageList({ messages, isDarkTheme }: MessageListProps) {
                 isDarkTheme ? 'text-gray-400' : 'text-purple-600'
               }`}>{message.username}</p>
             )}
-            <p className={`text-sm sm:text-base break-words transition-colors duration-300 ${
+            <p className={`text-sm sm:text-base overflow-wrap-break-word transition-colors duration-300 ${
               isDarkTheme ? 'text-gray-100' : 'text-gray-800'
             }`}>{message.text}</p>
             <p className={`text-xs mt-1 transition-colors duration-300 ${

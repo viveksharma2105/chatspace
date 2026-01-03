@@ -1,5 +1,45 @@
 @import "tailwindcss";
 
+/* Animated gradient border for dark theme send button */
+@keyframes border-rotate {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.animated-border {
+  position: relative;
+  z-index: 0;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background: conic-gradient(from var(--angle), #ff0080, #ff8c00, #40e0d0, #7b68ee, #ff0080);
+  z-index: -1;
+  animation: border-rotate 3s linear infinite;
+}
+
+.animated-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: inherit;
+  z-index: -1;
+}
+
 /* Fix for mobile keyboard viewport issues */
 html, body, #root {
   height: 100%;

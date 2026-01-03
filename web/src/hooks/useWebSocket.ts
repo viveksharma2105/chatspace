@@ -8,10 +8,7 @@ interface UseWebSocketReturn {
   roomCreated: boolean;
   memberCount: number;
   wsRef: React.MutableRefObject<WebSocket | null>;
-  setIsConnected: React.Dispatch<React.SetStateAction<boolean>>;
-  setCurrentRoom: React.Dispatch<React.SetStateAction<string>>;
   setRoomCreated: React.Dispatch<React.SetStateAction<boolean>>;
-  setMemberCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export function useWebSocket(): UseWebSocketReturn {
@@ -36,7 +33,6 @@ export function useWebSocket(): UseWebSocketReturn {
             if (attemptedRoom) {
               setCurrentRoom(attemptedRoom);
               setIsConnected(true);
-              console.log("Received memberCount:", data.memberCount);
               if (data.memberCount) {
                 setMemberCount(data.memberCount);
               }
@@ -44,7 +40,6 @@ export function useWebSocket(): UseWebSocketReturn {
             }
           } else if (data.message.includes("created successfully")) {
             setRoomCreated(true);
-            setMessages((m) => [...m, { text: "Room created! Now you can join it.", timestamp: new Date().toISOString() }]);
           }
         } else if (data.type === "error") {
           setMessages((m) => [...m, { text: `Error: ${data.message}`, timestamp: new Date().toISOString() }]);
@@ -54,7 +49,6 @@ export function useWebSocket(): UseWebSocketReturn {
         } else if (data.type === "chat") {
           setMessages((m) => [...m, { text: data.message, username: data.username, timestamp: new Date().toISOString() }]);
         } else if (data.type === "memberCount") {
-          console.log("Received memberCount update:", data.count);
           setMemberCount(data.count);
         } else {
           setMessages((m) => [...m, { text: event.data, timestamp: new Date().toISOString() }]);
@@ -82,9 +76,6 @@ export function useWebSocket(): UseWebSocketReturn {
     roomCreated,
     memberCount,
     wsRef,
-    setIsConnected,
-    setCurrentRoom,
     setRoomCreated,
-    setMemberCount,
   };
 }
