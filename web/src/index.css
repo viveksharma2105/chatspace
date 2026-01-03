@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+/* Fix for mobile keyboard viewport issues */
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Use dynamic viewport height for better mobile support */
+@supports (height: 100dvh) {
+  html, body, #root {
+    height: 100dvh;
+  }
+}
+
+/* Prevent body scroll when keyboard is open */
+body {
+  position: fixed;
+  width: 100%;
+}
