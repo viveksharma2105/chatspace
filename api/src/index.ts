@@ -102,7 +102,8 @@ wss.on("connection", (socket) => {
             allSockets[i]?.socket.send(JSON.stringify({
               type: "chat",
               message: parsedMessage.payload.message,
-              username: parsedMessage.payload.username
+              username: parsedMessage.payload.username,
+              userId: parsedMessage.payload.userId
             }))
         }
       }

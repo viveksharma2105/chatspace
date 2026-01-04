@@ -47,7 +47,7 @@ export function useWebSocket(): UseWebSocketReturn {
             alert("Room already exists! Please join instead.");
           }
         } else if (data.type === "chat") {
-          setMessages((m) => [...m, { text: data.message, username: data.username, timestamp: new Date().toISOString() }]);
+          setMessages((m) => [...m, { text: data.message, username: data.username, userId: data.userId, timestamp: new Date().toISOString() }]);
         } else if (data.type === "memberCount") {
           setMemberCount(data.count);
         } else {

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import "./App.css";
+import { useState, useMemo } from "react";
 import { Header, JoinRoom, MessageList, ChatInput } from "./components";
 import { useWebSocket } from "./hooks/useWebSocket";
 
@@ -12,6 +11,9 @@ function App() {
   const [username, setUsername] = useState("");
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [useCustomRoom, setUseCustomRoom] = useState(false);
+  
+  // Generate a unique user ID for this session
+  const userId = useMemo(() => Math.random().toString(36).substring(2, 15), []);
 
   const {
     messages,
@@ -64,7 +66,8 @@ function App() {
           type: "chat",
           payload: {
             message: message,
-            username: username
+            username: username,
+            userId: userId
           },
         })
       );
@@ -101,7 +104,7 @@ function App() {
         />
       ) : (
         <>
-          <MessageList messages={messages} isDarkTheme={isDarkTheme} />
+          <MessageList messages={messages} isDarkTheme={isDarkTheme} currentUserId={userId} />
           <ChatInput isDarkTheme={isDarkTheme} onSendMessage={handleSendMessage} />
         </>
       )}
