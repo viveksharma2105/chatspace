@@ -9,7 +9,7 @@ function App() {
 
   const [roomId, setRoomId] = useState(generateRoomId());
   const [username, setUsername] = useState("");
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
   const [useCustomRoom, setUseCustomRoom] = useState(false);
   
   // Generate a unique user ID for this session
